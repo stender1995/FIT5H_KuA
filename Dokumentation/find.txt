@@ -1,0 +1,15 @@
+Wildcard
+	? 
+		find datei?.txt
+			das Fragezeichen im Suchbegriff steht für genau 1 Zeichen 
+
+	* 
+		find *.txt 
+			der Asterisk steht für beliebig viele Zeichen 
+
+	[] 
+		find datei[12].txt 
+			in der eckigen Klanner stehen die Zeichen die gefunden werden sollen 
+		find date[a-k][12] 	
+			es ist möglich einen Bereich anzugeben, also zwischen a und k 
+
