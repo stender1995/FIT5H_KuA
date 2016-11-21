@@ -12,4 +12,13 @@ Wildcard
 			in der eckigen Klanner stehen die Zeichen die gefunden werden sollen 
 		find date[a-k][12] 	
 			es ist möglich einen Bereich anzugeben, also zwischen a und k 
+		find datei[!1].txt
+			alle sollen gefunden werden, die dem Muster entsprechen, und keine 1 als Ziffer nach den Ziffern <datei> haben 
 
+Optionen 
+	Es gibt vielfältige Suchoptionen in jedem Bereich. Es ist möglich nach Dateien zu suchen die eine bestimmte Größe haben, oder in einem bestimmten Zeitraum verändert wurden, oder einen bestimmten Besitzer haben
+	Siehe 
+		man find 
+	Beispiel: 
+		find.mmin -100
+			Findet alle Dateien im aktuellen Verzeichnis, die in den letzten 100 Minuten verändert wurden. 

@@ -49,3 +49,5 @@ Kommandosubstitution mit Backticks
 
 	echo $var
 		gibt das Ergebnis des Befehls aus 
+
+

@@ -1,0 +1,73 @@
+1. Vorraussetzungen
+	SheBang-Ziele:
+		Die erste Zeile enthält den Pfad zum interpretierenden Programm
+		#!/bin/bash
+
+2. Berechtigungen 
+	Damit eine Datei als Program ausgeführt werden kann, muss das Execute_Bit gesetzt sein, d.h. in den Berechtigungen wird ein x angezeigt.
+	chmod u+x test.sh
+
+3. Aufruf:
+	Es ist eine absolute Pfadangabe notwendig:
+	./test.sh
+		Aufruf aus dem aktuellen Ordner  
+
+4. Kontext Variablen 
+	Defenition: 
+		trinken='Whiskey und Zigarren'
+		Mehr als ein Wort muss in Anführungszeichen
+		Zwischen Zuweisung und Variablennamen keine Leerzeichen 
+
+		Ausgabe:
+			echo $trinken
+			Definierte Variablen enthalten zu Beginn ein $ - Zeichen. Das $-Zeichen bedeutet für den Interpreter generell eine Variable
+5. Variablen - intern
+		$0 : Der Name der aufgerufenen Datei 
+ 		$1 : Der Name des 1 Parameters
+ 		$# : Anzahl der Skript-Kommandos
+ 		$? : Exit-Status des letzten Befehls; wurde der letzte Befehl erfolgreich ausgeführt. 
+
+
+		echo $(date)
+		Der Shell-Befehl date wird ausgeführt und anschließend an das Program echo übergeben.
+
+		Kommandos in Variablen
+
+		remove='rm test.txt'
+		$remove
+
+		String-Konkatenierung 
+			string_1=Heia 
+			string_2=Popeia 
+			string="${string_1} ${string_2} was raschelt im Stroh?"
+			echo "$string_1 $string_2 abr im Heu"
+			echo $string
+
+6. If Anweisung
+	read -p "Geben sie ihren Text ein:" var_name 
+
+	echo "Die Eingabe lautete: $var_name" 
+
+	if [[ $var_name = "q" ]] 
+		then 
+			echo "Ist ein prima q"
+		elif [[ $var_name = "m" ]]
+			then 
+				echo "Jo, ein m"
+			else 
+				echo "irgentwas anderes"
+	fi 		
+
+7. Operatoren 
+	[[ $var ]]		true falls in $var etwas steht außer false oder 0 
+	[[ wert1 -eq wert 2 ]] 	gibt true wenn wert1 gleich wert 2
+	[[ wert1 -ne wert2 ]] 	gibt true wenn wert1 ungleich wert2 
+	[[ wert1 -gt wert2 ]]	gibt true wenn wert1 größer wert2 
+	[[ wert1 -lt wert2 ]]	gibt true wenn wert1 kleiner wert2 
+
+	[[ -e $dateiname ]] 	gibt true wenn Datei vorhanden ist 
+	[[ -d $verzeichnis ]] 	gibt true wenn Verzeichnis vorhanden 
+
+Aufgabe 
+	Erstellen Sie ein Skript, das einen Parameter entgegennimmt und checkt ob es eine Datei gibt, die so heißt wie der übergebene Parameter.
+	Aufruf: ./test.sh test.txt
