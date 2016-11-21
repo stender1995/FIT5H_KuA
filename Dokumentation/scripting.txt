@@ -58,7 +58,15 @@
 				echo "irgentwas anderes"
 	fi 		
 
-7. Operatoren 
+7. Schleifen
+	while [[ $eingabe -ne 1 ]] 
+	do
+	        read -p "Eingabe:" eingabe
+	        echo $eingabe 
+	done
+
+
+8. Operatoren 
 	[[ $var ]]		true falls in $var etwas steht außer false oder 0 
 	[[ wert1 -eq wert 2 ]] 	gibt true wenn wert1 gleich wert 2
 	[[ wert1 -ne wert2 ]] 	gibt true wenn wert1 ungleich wert2 
@@ -71,3 +79,5 @@
 Aufgabe 
 	Erstellen Sie ein Skript, das einen Parameter entgegennimmt und checkt ob es eine Datei gibt, die so heißt wie der übergebene Parameter.
 	Aufruf: ./test.sh test.txt
+	Erweiterung: Die Eingabeaufforderung soll so lange gezeigt werden, bis der Benutzer ein q eingibt, oder einen vorhanden Dateinamen. 
+
