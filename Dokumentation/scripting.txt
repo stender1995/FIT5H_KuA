@@ -59,20 +59,43 @@
 	fi 		
 
 7. Schleifen
-	while [[ $eingabe -ne 1 ]] 
-	do
-	        read -p "Eingabe:" eingabe
-	        echo $eingabe 
-	done
+	Die Schleife wird ausgeführt, so lange bis der Wert der Variable $eingabe nicht 1 ist
+		while [[ true ]] 
+		do
+		        read -p "Eingabe:" eingabe
+		        echo $eingabe 
+		done
+
+	Wiederholung bis der geprüfte Wert ein false ergibt
+
+		until  [[ false ]]
+		do 
+			read -p "Eingabe: " eingabe 
+			echo $eingabe
+		done
+
+		array=( ein zwei drei )
+		for i in "${array[@]}" $TOREMOVE
+		do 
+			echo $i;
+		done 
 
 
 8. Operatoren 
-	[[ $var ]]		true falls in $var etwas steht außer false oder 0 
+	[[ $var ]]			true falls in $var etwas steht außer false oder 0 
+	[[ !var ]]				true falls $var ist 0, false oder leer
+
+	Strings
+	[[ wert1 = 'string' ]]	gibt true wenn wert1 gleich zeichenkette ist
+	[[ wert1 ! = 'string']]	gibt true wenn wert1 ungleich Zeichenkette ist
+	
+	arthemetrische Werte 
 	[[ wert1 -eq wert 2 ]] 	gibt true wenn wert1 gleich wert 2
 	[[ wert1 -ne wert2 ]] 	gibt true wenn wert1 ungleich wert2 
 	[[ wert1 -gt wert2 ]]	gibt true wenn wert1 größer wert2 
 	[[ wert1 -lt wert2 ]]	gibt true wenn wert1 kleiner wert2 
 
+	Systemoperationen
 	[[ -e $dateiname ]] 	gibt true wenn Datei vorhanden ist 
 	[[ -d $verzeichnis ]] 	gibt true wenn Verzeichnis vorhanden 
 
