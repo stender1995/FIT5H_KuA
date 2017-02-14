@@ -1,0 +1,22 @@
+Verbindung über Netzadapter 
+	ifconfig
+
+	Einstellungen des Netzwerkadapters in:
+		/etc/network/interfaces
+			auto eth0 // gibt den ersten Netzwerkadapter den namen eth0 automatisch.
+			iface eth0 inet dhcp
+
+			auto eth1
+			iface eth1 inet static
+				adress 172.16.161.91
+				natmask	255.255.0.0
+				Gateway 172.16.1.253
+				dns.nameservers 172.16.1.201
+
+	Aktuelle Konfiguration übernehmen:			sudo service networking restart
+		sudo ifdown eth1
+		sudo ifup eth0
+
+DNS - Gateway 
+	/etc/resolv.conf
+		nameserver 172.16.1.201

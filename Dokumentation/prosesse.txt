@@ -1,0 +1,11 @@
+Programme:
+	top
+		#zeigt alle Prozesse des Systems
+		#aktuellisiert sich im Sekundentakt
+
+	ps aux | grep rails 
+		#alle Prozesse des angemeldeten Benutzers werden dem Programm grep übergeben, das eine Filterung nach einem Sichstring (rails) vornimmt 
+		#der erste Eintrag der Liste zeigt den Besitzer, der zweite Eintrag ist die ProzessID (PID), die benötigt wird um den Prozess zu killen 
+
+	kill -9 PID 
+		
