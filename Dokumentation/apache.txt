@@ -1,0 +1,43 @@
+Definitionen Webserver:
+	- basiert auf dem Protokoll http
+	- liefert Webseiten an Clients 
+	- enthält Module für Skriptsprachen, z.B. php
+	- lauscht standardmässig auf Port 80
+	- Verschlüsslung über https Protokoll möglich, wird auf Port 443 erwartet
+	- Apache, Nginx, Internet Information Service (IIS) 
+
+Installation:
+	sudo apt-get update 
+	sudo apt-get install apache2
+	sudo apt-get install lynx 
+
+Hostname  auf Server setzen
+	sudo hostname -b servername.local 
+	sudo vim /etc/hostname 
+		servername.local
+
+	sudo vim /etc/hosts
+		127.0.0.1 servername.local  
+
+Hostname auf Client setzen 
+	sudo vim /etc/hosts
+	172.16.161.221 servername.local
+
+Testen:
+	Server:
+		lynx http://127.0.0.1
+		lynx http://servername.local
+
+	Client (Browser):
+		http://172.16.161.221
+		http://servername.local
+
+PHP Modul
+	sudo apt-get install libapache2-mod-php
+	sudo a2enmod php7.0
+	sudo service apache2 restart 
+
+PHP Seite anzeigen lassen:
+	cd /var/www/html
+	sudo touch index.php
+	sudo vim index.php
