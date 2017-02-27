@@ -1,5 +1,7 @@
 - Bridget einschalten
 - Ubuntu Server installieren
+- GRUOB-Bootloader 
+	ja
 -benutzer: stender 
 -pass: stender
 -open ssh auswählen 
@@ -15,6 +17,8 @@ address 172.16.161.221
 netmask 255.255.0.0
 gateway 172.16.1.253
 dns-nameservers 172.16.1.201
+
+- sudo reboot now
 
 
 
@@ -39,7 +43,7 @@ Netzwerkkarte konfig:
 
 auto ens33
 iface ens33 inet static
-adress 172.16.161.221
+address 172.16.161.221
 netmask 255.255.0.0
 gateway 172.16.1.253
 dns-nameservers 172.16.1.201

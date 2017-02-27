@@ -1,0 +1,70 @@
+1. Kopieren Sie oder legen Sie eine neue virtuelle Maschine an, nutzen Sie Ubuntu 16.04. Der Admin-User heißt theo.
+
+
+2.a Installieren Sie SSH, erstellen eine direkte Verbindung zwischen Client und Server, über einen Austausch des privaten User-Schlüssels Ihres Desktoprechners.
+
+-	sudo apt-get install openssh-server 
+
+- sudo vim /etc/network/interfaces #Befehl
+
+auto ens33
+iface ens33 inet static
+address 172.16.161.222
+netmask 255.255.0.0
+gateway 172.16.1.253
+dns-nameservers 172.16.1.201
+
+- sudo reboot now
+
+- sudo shh theo@172.16.161.222
+
+3.b Legen Sie einen neuen Benutzer webadmin an, der die sudo-Berechtigungen bekommt. Deaktivieren Sie den Zugriff auf Root von einem externen Rechner.
+
+- sudo adduser webadmin
+
+- sudo usermod -a -G sudo webadmin 
+
+- su webadmin
+
+- id 
+
+
+root Deaktiviert:
+
+- sudo passwd -d root
+
+root Aktivieren:
+
+- sudo passwd
+
+
+
+4.a Installieren Sie den Apache Webserver und einen konsolenbasierten Browser.
+
+- 	sudo apt-get update 
+	sudo apt-get install apache2
+	sudo apt-get install lynx 
+
+
+
+4.b Testen Sie den Webserver mit einem Browseraufruf
+
+- http://172.16.253.13/
+
+4.c Installieren Sie das php-Modul des Webservers und aktivieren es
+
+- 	sudo apt-get install libapache2-mod-php
+	sudo a2enmod php7.0
+	sudo service apache2 restart 
+
+
+4.d Legen Sie eine Seite an um die php-Installation zu testen und rufen Sie die Seite mit lynx auf
+
+-	cd /var/www/html
+	sudo touch index.php
+	sudo vim index.php
+
+5.a Erstellen Sie für den Webserifver einen VirtuellenHost mit dem Namen sommer und legen dort eine index.php mit einer Ausgabe 'Hallo Sommer' an. Veranlassen Sie einen Reload des Webservers
+5.b Wiederholen Sie den Prozess mit winter und 'Hallo Winter'
+5.c. Die Seite winter.ihr_server_name.local (bzw. sommer ...) soll sowohl von der Konsole mit lynx,als auch von Ihrem Desktoprechner erreichbar sein. Nehmen Sie die entsprechenden Konfigurationen vor.
+6. Optional in Vorbereitung des nächsten Steps: recherchieren Sie wie Sie einen eigenen GIT-Server konfigurieren können.
