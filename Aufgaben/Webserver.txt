@@ -18,6 +18,12 @@ dns-nameservers 172.16.1.201
 
 - sudo shh theo@172.16.161.222
 
+
+Password ==
+
+Marcel = geburtstag 
+Webadmin == password
+
 3.b Legen Sie einen neuen Benutzer webadmin an, der die sudo-Berechtigungen bekommt. Deaktivieren Sie den Zugriff auf Root von einem externen Rechner.
 
 - sudo adduser webadmin
@@ -64,7 +70,43 @@ root Aktivieren:
 	sudo touch index.php
 	sudo vim index.php
 
-5.a Erstellen Sie für den Webserifver einen VirtuellenHost mit dem Namen sommer und legen dort eine index.php mit einer Ausgabe 'Hallo Sommer' an. Veranlassen Sie einen Reload des Webservers
+5.a Erstellen Sie für den Webserver einen VirtuellenHost mit dem Namen sommer und legen dort eine index.php mit einer Ausgabe 'Hallo Sommer' an. Veranlassen Sie einen Reload des Webservers
+
+- sudo mkdir /var/www/html/webneu
+
+- sudo touch /var/www/html/webneu/index.php
+
+- sudo chown -R www-data:www-data webneu
+
+Virtualhost anlegen
+
+- cd /etc/apache2/sites-available
+
+- sudo vim webneu.conf
+
+- <VirtualHost *:80>
+
+- ServerName webneu.fit5h-gerhardt-server.local
+
+- DocumentRoot /var/www/html/webneu
+
+- </VirtualHost>
+
+- sudo a2ensite webneu
+
+- sudo service apache2 reload
+
+Host vom Client ändern:
+
+- sudo vim /etc/hosts
+
+Test im Client-Browser:
+
+- http://webneu.servername.local
+
 5.b Wiederholen Sie den Prozess mit winter und 'Hallo Winter'
 5.c. Die Seite winter.ihr_server_name.local (bzw. sommer ...) soll sowohl von der Konsole mit lynx,als auch von Ihrem Desktoprechner erreichbar sein. Nehmen Sie die entsprechenden Konfigurationen vor.
+
+
+
 6. Optional in Vorbereitung des nächsten Steps: recherchieren Sie wie Sie einen eigenen GIT-Server konfigurieren können.
